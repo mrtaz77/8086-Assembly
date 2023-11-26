@@ -1,0 +1,63 @@
+.MODEL SMALL
+.STACK 100H   
+
+.DATA
+
+CR EQU 0DH
+LF EQU 0AH
+
+MSG1 DB 'ENTER FIRST NUMBER : $'
+MSG2 DB CR,LF,'ENTER SECOND NUMBER : $'
+MSG3 DB CR,LF,'ANS : $'
+N1 DB ?
+N2 DB ?
+ANS DB ?
+
+
+
+.CODE
+
+
+
+MAIN PROC
+    MOV AX,@DATA
+    MOV DS,AX  
+    
+    LEA DX,MSG1
+    MOV AH,9   
+    INT 21H
+    
+    MOV AH,1
+    INT 21H  
+    SUB AL,30H ; DEDUCT 30H FROM ASCII SINGLE
+    MOV N1,AL  ; BIT NUMBER 
+    
+    LEA DX,MSG2
+    MOV AH,9
+    INT 21H
+    
+    MOV AH,1
+    INT 21H    ; DEDUCT 30H FROM ASCII SINGLE
+    SUB AL,30H ; BIT NUMBER 
+    
+    ADD AL,N1
+    MOV ANS,AL  ; ADD 30H FROM ASCII SINGLE
+    ADD ANS,30H ; BIT NUMBER
+    
+    LEA DX,MSG3
+    MOV AH,9
+    INT 21H
+    
+    MOV DL,ANS
+    MOV AH,2
+    INT 21H
+        
+    
+    
+    
+    MOV AH,4CH
+    INT 21H
+    
+
+MAIN ENDP
+END MAIN

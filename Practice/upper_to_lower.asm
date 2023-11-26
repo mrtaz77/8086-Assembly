@@ -22,9 +22,9 @@ MOV AH,9
 INT 21H
 
 ;input a upper case character
-mov ah,1
+mov AH,1
 int 21h
-add AL, 20h
+add AL, 20h; the input character is stored in AL
 mov char,AL
 
 ;display on next line
@@ -34,8 +34,8 @@ INT 21H
 
 
 ;display lower case
-mov ah,2
-mov dl,char
+mov AH,2
+mov DL,char
 INT 21H
 
 ;DOS EXIT

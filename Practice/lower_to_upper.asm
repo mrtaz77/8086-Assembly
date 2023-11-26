@@ -1,0 +1,44 @@
+.MODEL SMALL
+
+.STACK 100H
+
+.DATA 
+
+CR EQU 0DH
+LF EQU 0AH
+
+
+PROMPT DB 'ENTER ANY LOWER CASE CHARACTER : $'
+OUTPUT DB CR,LF,'UPPER CASE : $' 
+CHAR DB ?
+
+
+MAIN PROC
+    MOV AX,@DATA
+    MOV DS,AX 
+    
+    LEA DX,PROMPT
+    MOV AH,9
+    INT 21H    
+    
+    MOV AH,1
+    INT 21H
+    SUB AL,20H
+    MOV CHAR,AL
+    
+    LEA DX,OUTPUT
+    MOV AH,9
+    INT 21H 
+    
+    MOV DL,CHAR
+    MOV AH,2
+    INT 21H 
+    
+                
+    MOV AH,4CH
+    INT 21H
+
+MAIN ENDP
+
+END MAIN
+    
