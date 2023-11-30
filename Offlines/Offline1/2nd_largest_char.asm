@@ -8,6 +8,7 @@ LF EQU 0AH
 
 NL DB CR,LF,'$'
 EQUAL DB CR,LF,'All letters are equal$'
+ERROR DB CR,LF,'Invalid input$'
 
 .CODE
 
@@ -29,9 +30,25 @@ MOV BH,AL
 
 MOV AH,1
 INT 21H 
-MOV DL,AL
+MOV DL,AL 
 
 ;inputs in bl(a),bh(b) and dl(c)
+
+;input processing
+CMP BL,'a'
+JB ERR
+CMP BL,'z'
+JA ERR
+
+CMP DL,'a'
+JB ERR
+CMP DL,'z'
+JA ERR
+
+CMP BH,'a'
+JB ERR
+CMP BH,'z'
+JA ERR
 
 CMP BL,BH
 JE  ABEQUAL
@@ -90,7 +107,12 @@ ANSC:
     INT 21H
     
     MOV DL,BH
-    JMP EXITANS
+    JMP EXITANS  
+    
+ERR:
+    LEA DX,ERROR
+    MOV AH,9
+    JMP EXIT
 
 EQL:
     LEA DX,EQUAL 
