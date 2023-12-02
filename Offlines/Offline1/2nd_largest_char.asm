@@ -5,8 +5,9 @@
 .DATA ;VARIABLE DECLARATION
 CR EQU 0DH
 LF EQU 0AH
-
 NL DB CR,LF,'$'
+
+INPUT DB 'Enter 3 lowercase characters : $'
 EQUAL DB CR,LF,'All letters are equal$'
 ERROR DB CR,LF,'Invalid input$'
 
@@ -17,7 +18,11 @@ MAIN PROC ; LIKE MAIN
 ;DATA SEGMENT INIT
 
 MOV AX, @DATA;BRINGS DATA TO AX FOR INIT
-MOV DS, AX     
+MOV DS, AX
+
+LEA DX,INPUT
+MOV AH,9
+INT 21H     
 
 ;CHAR INPUT
 MOV AH,1

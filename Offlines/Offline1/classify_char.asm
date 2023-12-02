@@ -6,6 +6,7 @@
 CR EQU 0DH
 LF EQU 0AH   
 
+INPUT DB 'Enter a character : $'
 UPPER_MSG DB CR,LF,'Uppercase letter$'
 LOWER_MSG DB CR,LF,'Lowercase letter$'
 NUM_MSG DB CR,LF,'Number$'
@@ -21,6 +22,10 @@ MAIN PROC ; LIKE MAIN
 
 MOV AX, @DATA;BRINGS DATA TO AX FOR INIT
 MOV DS, AX     
+
+LEA DX,INPUT
+MOV AH,9
+INT 21H
 
 ;CHAR INPUT
 MOV AH,1
@@ -47,7 +52,6 @@ JBE  LOWER
 
 JMP NONALPHA
 
-
 NONALPHA:
     LEA DX,NON_ALPHA_MSG
     JMP EXIT
@@ -59,13 +63,9 @@ UPPER:
 LOWER:
     LEA DX,LOWER_MSG
     JMP EXIT   
-
-
 NUM:
     LEA DX,NUM_MSG
     JMP EXIT
-    
-
             
 ;DOES EXIT
 EXIT:      
