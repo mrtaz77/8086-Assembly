@@ -17,4 +17,9 @@ Codes,offlines and onlines using 8086 assembly programming.
         - [Specification](/Offlines/Offline1/July_2023_CSE_316_Assembly_Offline_1.pdf)
         - [2nd_largest_char](/Offlines/Offline1/2nd_largest_char.asm)
         - [classify_char](/Offlines/Offline1/classify_char.asm)
+    
+    - Offline 2
+        - [Specification](/Offlines/Offline2/Assembly_Offline_2.pdf)
+        - [chocolate_num](/Offlines/Offline2/chocolate_num.asm)
+        - [sum_of_digits](/Offlines/Offline2/sum_of_digits.asm)
 
