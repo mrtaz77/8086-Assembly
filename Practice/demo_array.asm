@@ -7,11 +7,17 @@ CR EQU 0DH
 LF EQU 0AH
 
 NL DB CR,LF,'$'
-ERROR DB CR,LF,'Invalid input$' 
+ERROR DB CR,LF,'Invalid input$'
+
+
+ARR3 DW 3 DUP (?)
+ARR1 DW 01234H, 05678H, 09ABCH
+ARR2 DB 2 DUP (01EH), 2 DUP (0ABH), 0FFH
 
 ; EQU MEANS EQUAL
 ; THESE CONSTANTS ARE USED IN ALL CODES
 ; USED FOR NEW LINE
+
 
 .CODE
 
@@ -25,11 +31,30 @@ MOV DS, AX
 
 ;code here
 
+LEA SI,ARR3
+
+MOV CX,3
+INPUT:
+CALL INPUT_NUM
+MOV WORD PTR[SI],AX
+ADD SI,2
+LOOP INPUT
+
+MOV CX,3
+OUTPUT:
+MOV AX,[SI]
+CALL PRINT_NUM
+DEC WORD PTR[SI],2
+
+LOOP OUTPUT
+
+
 JMP EXIT
+
 
 ERR: 
 LEA DX,ERROR
-CALL PRINT_STR
+MOV AH,9
 INT 21H
 
 EXIT:
@@ -38,59 +63,11 @@ MOV AH,4CH
 INT 21H ;INTERRUPT FUNCTION
 
 
-MAIN ENDP         
-
-
-;print single char
-
-PROC INPUT_CHAR NEAR
-    MOV AH,1
-    INT 21H
-    RET
-
-
-PROC PRINT_CHAR NEAR
-     MOV AH,2
-     INT 21H
-     RET   
-
-;outputs n(stored in cx) numbers as output and stores in array address
-
-PROC OUTPUT_ARR_NUM NEAR
-    OUTPUT_ARR_NUM1:
-        MOV AX,WORD PTR[SI]
-        CALL PRINT_NUM
-        ADD SI,2       
-        CALL NEWLINE
-        LOOP OUTPUT_ARR_NUM1
-        RET
-
-
-
-;takes n(stored in cx) numbers as input and stores in the array address
-;of SI
-
-PROC INPUT_ARR_NUM NEAR
-    INPUT_ARR_NUM1:
-        CALL INPUT_NUM
-        MOV WORD PTR[SI],AX
-        ADD SI,2
-        LOOP INPUT_ARR_NUM1
-        RET   
-    INPUT_ARR_NUM ENDP
-
-PROC PRINT_STR NEAR
-    MOV AH,9
-    INT 21H
-    RET       
-
-PROC NEWLINE NEAR
-    LEA DX,NL
-    CALL PRINT_STR  
-    RET                     
+MAIN ENDP
+    
     
 ;takes a decimal number input and stores it in AX register 
-;Number is space terminated 
+;Number is space terminated
    
 PROC INPUT_NUM NEAR 
         MOV BX,0
@@ -117,7 +94,7 @@ PROC INPUT_NUM NEAR
         JMP INP
     EXIT_INPUT:
         MOV AX,BX
-        RET 
+        RET
     
     
 
