@@ -3,6 +3,9 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
+# added
+Codes
+
 # Executables
 *.exe
 *.debug
@@ -10,8 +13,7 @@
 *.symbol
 *.zip
 
-# User-specific files
-Codes
+# User-specific file
 *.rsuser
 *.suo
 *.user
