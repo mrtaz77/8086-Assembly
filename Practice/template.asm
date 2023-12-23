@@ -32,14 +32,16 @@ LEA DX,ERROR
 CALL PRINT_STR
 INT 21H
 
-EXIT:
-;DOES EXIT
-MOV AH,4CH
-INT 21H ;INTERRUPT FUNCTION
+CALL EXIT
 
 
 MAIN ENDP         
 
+; exit main
+PROC EXIT NEAR
+    MOV AH,4CH
+    INT 21H
+    RET  
 
 ;print single char
 

@@ -2,15 +2,20 @@
 Codes,offlines and onlines using 8086 assembly programming.
 
 ## Navigation
+- Template for problem solving : [template](/Practice/template.asm)
 - Practice
-    1. [template](/Practice/template.asm)
-    2. [upper_to_lower](/Practice/upper_to_lower.asm)
-    3. [helloworld](/Practice/helloworld.asm)
-    4. [two_sum_single_bit_numbers](/Practice/two_sum_1s_place_numbers.asm)
-    5. [lower_to_upper](/Practice/lower_to_upper.asm)
-    6. [print_all_ascii](/Practice/print_all_ascii.asm)
-    7. [num_of_bits](/Practice/num_of_bits.asm)
-    8. [largest_smallest_capital](/Practice/largest_smallest_capital.asm)
+    1. [upper_to_lower](/Practice/upper_to_lower.asm)
+    2. [helloworld](/Practice/helloworld.asm)
+    3. [two_sum_single_bit_numbers](/Practice/two_sum_1s_place_numbers.asm)
+    4. [lower_to_upper](/Practice/lower_to_upper.asm)
+    5. [print_all_ascii](/Practice/print_all_ascii.asm)
+    6. [num_of_bits](/Practice/num_of_bits.asm)
+    7. [largest_smallest_capital](/Practice/largest_smallest_capital.asm)
+    8. [add_10_num](/Practice/add_10_num.asm)
+    9. [demo_multiply](/Practice/demo_multiply.asm)
+    10. [demo_array](/Practice/demo_array.asm)
+    11. [flag_sim](/Practice/flag_sim.asm)
+    12. [flag_push_pop](/Practice/flag_push_pop.asm)
 
 - Offlines
     - Offline 1
@@ -20,14 +25,16 @@ Codes,offlines and onlines using 8086 assembly programming.
     
     - Offline 2
         - [Spec](/Offlines/Offline2/Assembly_Offline_2.pdf)
-        - [chocolate_num](/Offlines/Offline2/chocolate_num.asm)
+        - [Num_of_chocolates](/Offlines/Offline2/chocolate_num.asm)
         - [sum_of_digits](/Offlines/Offline2/sum_of_digits.asm)
 
 - Onlines 
     - From 20
         - Online1
-            - [Spec](/Onlines/From%2020/Assembly%20Online%20A1%20A2.pdf)
-            - [checkArraySorting](/Onlines/From%2020/20_online_A1_A2.asm)
+            - [Spec_A1_A2](/Onlines/From%2020/Assembly%20Online%20A1%20A2.pdf)
+            - [A1_A2_Solv:checkArraySorting](/Onlines/From%2020/20_online_A1_A2.asm)
+            - [Spec_B1_B2](/Onlines/From%2020/July_2023_CSE_316_Assembly_Online_B1+B2.pdf)
+            - [B1_B2_Solv:Num_of_Vowels_&_Consonants](/Onlines/From%2020/20_online_B1_B2.asm)
 
     - From 19
         - Online1
